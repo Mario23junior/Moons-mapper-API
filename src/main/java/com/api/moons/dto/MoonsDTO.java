@@ -1,11 +1,8 @@
 package com.api.moons.dto;
- 	
-import javax.persistence.Entity;
 
-@Entity
 public class MoonsDTO {
 
- 	private Long id;
+	private Long id;
 	private String name;
 	private String planetaMae;
 	private String semieixoMaior;
@@ -16,8 +13,8 @@ public class MoonsDTO {
 	private String inclinacao;
 	private Double velocidadeOrbitalMedia;
 
-	public MoonsDTO	() {
- 	}
+	public MoonsDTO() {
+	}
 
 	public Long getId() {
 		return id;
@@ -25,7 +22,7 @@ public class MoonsDTO {
 
 	public void setId(Long id) {
 		this.id = id;
-	}	
+	}
 
 	public String getName() {
 		return name;
