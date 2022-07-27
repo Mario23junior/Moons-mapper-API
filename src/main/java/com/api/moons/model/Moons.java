@@ -1,5 +1,6 @@
 package com.api.moons.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,18 +12,33 @@ public class Moons {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(length = 30, nullable = false)
 	private String name;
+
+	@Column(length = 30, nullable = false)
 	private String planetaMae;
+
+	@Column(length = 40, nullable = false)
 	private String semieixoMaior;
+
+	@Column(length = 200, nullable = false)
 	private String pressaoAtmosferica;
+
 	private Integer massa;
+
+	@Column(length = 40, nullable = false)
 	private String periodoDeRotacao;
+
+	@Column(length = 200, nullable = false)
 	private String periodoOrbital;
+
+	@Column(length = 200, nullable = false)
 	private String inclinacao;
+
 	private Double velocidadeOrbitalMedia;
 
 	public Moons() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
@@ -31,7 +47,7 @@ public class Moons {
 
 	public void setId(Long id) {
 		this.id = id;
-	}	
+	}
 
 	public String getName() {
 		return name;

@@ -3,8 +3,8 @@ package com.api.moons.dto;
 public class MoonsDTO {
 
 	private Long id;
-	private String name;
-	private String planetaMae;
+	private String name;	
+ 	private String planetaMae;
 	private String semieixoMaior;
 	private String pressaoAtmosferica;
 	private Integer massa;
