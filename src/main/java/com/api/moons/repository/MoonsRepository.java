@@ -8,4 +8,6 @@ import com.api.moons.model.Moons;
 @Repository
 public interface MoonsRepository extends JpaRepository<Moons, Long>{
 
+	Moons findByName(String name);
+
 }

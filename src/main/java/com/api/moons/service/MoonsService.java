@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.api.moons.dto.MoonsDTO;
 import com.api.moons.exceptions.ReturnObjectFailedExceptionsMessage;
@@ -33,5 +36,27 @@ public class MoonsService {
 			throw new ReturnObjectFailedExceptionsMessage("Erro ao listar todos as luas ");
 		}
  	}
+	
+	
+ 	public ResponseEntity<MoonsDTO> saveAllData(MoonsDTO moonsDto) {
+	  valueOfDuplicate(moonsDto);
+	  Moons body = saveAllPart(mapper.map(moonsDto, Moons.class));
+ 		  return ResponseEntity
+				  .status(HttpStatus.CREATED)
+				  .body(mapper.map(body, MoonsDTO.class));
+	}
+	
+	public Moons saveAllPart(Moons moons) {
+		return repository.save(moons);
+	}
+	
+	
+	private void valueOfDuplicate(MoonsDTO moonsDto) {
+		Moons moonsOne = mapper.map(moonsDto, Moons.class);
+		Moons buscarName = repository.findByName(moonsOne.getName());
+		if(buscarName !=  null && buscarName.getName() != moonsDto.getName()) {
+			throw new ReturnObjectFailedExceptionsMessage("O Satelite natural "+ moonsDto.getName()+" Já está cadastrado em nosso banco");
+		}
+	}
 
 }
