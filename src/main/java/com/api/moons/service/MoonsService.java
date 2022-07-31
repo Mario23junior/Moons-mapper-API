@@ -70,6 +70,15 @@ public class MoonsService {
 		}
  	}
 	
+	public ResponseEntity<MoonsDTO> listId(Long id) {
+ 		Optional<Moons> idPla = repository.findById(id);
+		if(idPla.isPresent()) {
+			return ResponseEntity.ok(mapper.map(idPla.get(), MoonsDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
 	private void valueOfDuplicate(MoonsDTO moonsDto) {
 		Moons moonsOne = mapper.map(moonsDto, Moons.class);
 		Moons buscarName = repository.findByName(moonsOne.getName());

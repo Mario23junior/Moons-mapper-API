@@ -35,7 +35,12 @@ public class MoonsController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<MoonsDTO> listId(@PathVariable Long id, @RequestBody MoonsDTO moonsDTO){
+	public ResponseEntity<MoonsDTO> update(@PathVariable Long id, @RequestBody MoonsDTO moonsDTO){
 		return service.updateData(id, moonsDTO);
-	} 
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<MoonsDTO> listId(@PathVariable Long id){
+		return service.listId(id);
+	}
 }
