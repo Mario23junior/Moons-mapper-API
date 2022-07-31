@@ -1,13 +1,13 @@
 package com.api.moons.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.api.moons.dto.MoonsDTO;
 import com.api.moons.exceptions.ReturnObjectFailedExceptionsMessage;
@@ -50,12 +50,32 @@ public class MoonsService {
 		return repository.save(moons);
 	}
 	
+	public ResponseEntity<MoonsDTO> updateData(Long id, MoonsDTO moonDto) {
+		Optional<Moons> findId = repository.findById(id);
+		if(findId.isPresent()) {
+			Moons moons = findId.get();
+			moons.setName(moonDto.getName());
+			moons.setPlanetaMae(moonDto.getPlanetaMae());
+			moons.setSemieixoMaior(moonDto.getSemieixoMaior());
+			moons.setPressaoAtmosferica(moonDto.getPressaoAtmosferica());
+			moons.setMassa(moonDto.getMassa());
+			moons.setPeriodoDeRotacao(moonDto.getPeriodoDeRotacao());
+			moons.setPeriodoOrbital(moonDto.getPeriodoOrbital());
+			moons.setInclinacao(moonDto.getInclinacao());
+			moons.setVelocidadeOrbitalMedia(moonDto.getVelocidadeOrbitalMedia());
+			repository.save(moons);
+			return ResponseEntity.ok(mapper.map(findId, MoonsDTO.class));
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+ 	}
 	
 	private void valueOfDuplicate(MoonsDTO moonsDto) {
 		Moons moonsOne = mapper.map(moonsDto, Moons.class);
 		Moons buscarName = repository.findByName(moonsOne.getName());
 		if(buscarName !=  null && buscarName.getName() != moonsDto.getName()) {
-			throw new ReturnObjectFailedExceptionsMessage("O Satelite natural "+ moonsDto.getName()+" Já está cadastrado em nosso banco");
+			throw new ReturnObjectFailedExceptionsMessage("O Satelite natural "+
+		moonsDto.getName()+" Já está cadastrado em nosso banco");
 		}
 	}
 
