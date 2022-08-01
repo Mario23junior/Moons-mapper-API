@@ -3,6 +3,7 @@ package com.api.moons.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,5 +43,10 @@ public class MoonsController {
 	@GetMapping("/{id}")
 	public ResponseEntity<MoonsDTO> listId(@PathVariable Long id){
 		return service.listId(id);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<MoonsDTO> deleteId(@PathVariable Long id) {
+		return service.deleteValue(id);
 	}
 }

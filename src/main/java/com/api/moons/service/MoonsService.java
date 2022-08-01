@@ -79,6 +79,16 @@ public class MoonsService {
 		}
 	}
 	
+	public ResponseEntity<MoonsDTO> deleteValue(Long id) {
+		Optional<Moons> find = repository.findById(id);
+		if(find.isPresent()) {
+			repository.delete(find.get());
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
 	private void valueOfDuplicate(MoonsDTO moonsDto) {
 		Moons moonsOne = mapper.map(moonsDto, Moons.class);
 		Moons buscarName = repository.findByName(moonsOne.getName());
