@@ -1,4 +1,4 @@
-<p align="center"><img src="img/icon.gif" width = "833px" height="433px"></p>
+<p align="center"><img src="logo.gif" width = "733px" height="733px"></p>
 
 <h1 align="center">Moons Mapper API</h1>
 
