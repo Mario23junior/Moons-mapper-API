@@ -13,7 +13,7 @@ public class Moons {
   	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 30, nullable = false)
+	@Column(length = 200, nullable = false)
 	private String name;
 
 	@Column(length = 30, nullable = false)
