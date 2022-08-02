@@ -25,7 +25,7 @@ public class Moons {
 	@Column(length = 200, nullable = false)
 	private String pressaoAtmosferica;
 
-	private Integer massa;
+	private Long massa;
 
 	@Column(length = 40, nullable = false)
 	private String periodoDeRotacao;
@@ -43,7 +43,7 @@ public class Moons {
 	}
 
 	public Moons(Long id, String name, String planetaMae, String semieixoMaior, String pressaoAtmosferica,
-			Integer massa, String periodoDeRotacao, String periodoOrbital, String inclinacao,
+			Long massa, String periodoDeRotacao, String periodoOrbital, String inclinacao,
 			Double velocidadeOrbitalMedia) {
 		super();
 		this.id = id;
@@ -98,11 +98,11 @@ public class Moons {
 		this.pressaoAtmosferica = pressaoAtmosferica;
 	}
 
-	public Integer getMassa() {
+	public Long getMassa() {
 		return massa;
 	}
 
-	public void setMassa(Integer massa) {
+	public void setMassa(Long massa) {
 		this.massa = massa;
 	}
 
