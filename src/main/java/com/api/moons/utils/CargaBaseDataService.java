@@ -44,6 +44,8 @@ public class CargaBaseDataService {
 		Moons moons18 = new Moons(18L, "Psámata", "Neturno", "00.0000", "Inexistente",0000L, "00,0000", "00h","0.00", 0.00);
 		Moons moons19 = new Moons(19L, "Néso", "Neturno", "00.0000", "Inexistente",0000L, "00,0000", "00h","0.00", 0.00);
 		Moons moons20 = new Moons(20L, "Métis", "Jupiter", "128.000", "17.5", 361016L, "Inexistente", "7h","0,06", 31.501);
+		Moons moons21 = new Moons(21L, "Ganímedes", "Jupiter","	1070400", "Traços", 14821023L, "7d 3h 42.6m", "	7.154 552 96d","2.214", 10.880);
+
 
 		MoonsDTO moonsDto1 = mapper.map(moons1, MoonsDTO.class);
 		MoonsDTO moonsDto2 = mapper.map(moons2, MoonsDTO.class);
@@ -65,6 +67,7 @@ public class CargaBaseDataService {
 		MoonsDTO moonsDto18 = mapper.map(moons18, MoonsDTO.class);
 		MoonsDTO moonsDto19 = mapper.map(moons19, MoonsDTO.class);
 		MoonsDTO moonsDto20 = mapper.map(moons20, MoonsDTO.class);
+		MoonsDTO moonsDto21 = mapper.map(moons21, MoonsDTO.class);
 
  
 
@@ -88,6 +91,7 @@ public class CargaBaseDataService {
 		repository.saveAll(Arrays.asList(mapper.map(moonsDto18, Moons.class)));
 		repository.saveAll(Arrays.asList(mapper.map(moonsDto19, Moons.class)));
 		repository.saveAll(Arrays.asList(mapper.map(moonsDto20, Moons.class)));
+		repository.saveAll(Arrays.asList(mapper.map(moonsDto21, Moons.class)));
 
 	}
 }
