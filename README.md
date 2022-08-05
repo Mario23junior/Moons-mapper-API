@@ -32,6 +32,12 @@ Diga como essa etapa será:
 java -jar target/MoonsMapped.jar
 
 ```
+
+## Acesse a documentação
+
+```
+ http://localhost:8080/swagger-ui/index.html#/
+```
  
 ## Uso local
 
