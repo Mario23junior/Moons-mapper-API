@@ -7,13 +7,29 @@ public class MoonsDTO {
  	private String planetaMae;
 	private String semieixoMaior;
 	private String pressaoAtmosferica;
-	private Integer massa;
+	private Long  massa;
 	private String periodoDeRotacao;
 	private String periodoOrbital;
 	private String inclinacao;
 	private Double velocidadeOrbitalMedia;
 
 	public MoonsDTO() {
+	}
+	
+	public MoonsDTO(Long id, String name, String planetaMae, String semieixoMaior, String pressaoAtmosferica,
+			Long massa, String periodoDeRotacao, String periodoOrbital, String inclinacao,
+			Double velocidadeOrbitalMedia) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.planetaMae = planetaMae;
+		this.semieixoMaior = semieixoMaior;
+		this.pressaoAtmosferica = pressaoAtmosferica;
+		this.massa = massa;
+		this.periodoDeRotacao = periodoDeRotacao;
+		this.periodoOrbital = periodoOrbital;
+		this.inclinacao = inclinacao;
+		this.velocidadeOrbitalMedia = velocidadeOrbitalMedia;
 	}
 
 	public Long getId() {
@@ -56,11 +72,11 @@ public class MoonsDTO {
 		this.pressaoAtmosferica = pressaoAtmosferica;
 	}
 
-	public Integer getMassa() {
+	public Long getMassa() {
 		return massa;
 	}
 
-	public void setMassa(Integer massa) {
+	public void setMassa(Long massa) {
 		this.massa = massa;
 	}
 

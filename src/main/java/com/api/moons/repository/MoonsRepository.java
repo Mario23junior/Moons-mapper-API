@@ -9,5 +9,4 @@ import com.api.moons.model.Moons;
 public interface MoonsRepository extends JpaRepository<Moons, Long>{
 
 	Moons findByName(String name);
-
 }
